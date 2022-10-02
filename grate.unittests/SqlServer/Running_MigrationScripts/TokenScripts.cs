@@ -17,8 +17,10 @@ public class TokenScripts : Generic.Running_MigrationScripts.TokenScripts
     protected override IGrateTestContext Context => GrateTestContext.SqlServer;
 
     private const string Bug232Sql = @"
+ALTER DATABASE {{DatabaseName}} SET READ_COMMITTED_SNAPSHOT ON;
+GO
 ALTER DATABASE {{DatabaseName}} SET ALLOW_SNAPSHOT_ISOLATION ON;
-ALTER DATABASE {{DatabaseName}} SET READ_COMMITTED_SNAPSHOT ON";
+GO";
 
     [Test]
     public async Task Bug232_Timeout_14_Regression()
