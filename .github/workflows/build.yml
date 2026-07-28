@@ -46,6 +46,7 @@ jobs:
         echo "versionSourceDistance: ${{ steps.gitversion.outputs.versionSourceDistance }}"
         echo "FullSemVer: ${{ steps.gitversion.outputs.fullSemVer }}"
         echo "SemVer: ${{ steps.gitversion.outputs.semVer }}"
+        echo "Everything?: ${{ steps.gitversion.outputs }}"
 
   build-netcore-tool:
     needs: set-version-number
